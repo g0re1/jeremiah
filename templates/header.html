@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="description" content="Podstawy programowania w django. Python dla początkujących.Dzielimy się podstawami programowania w django." />
+<meta name="keywords" content="Python,Django,programowanie,python/django, nauka django, nauka python, django podstawy" />
+<meta name="google-site-verification" content="XH8oyYstHxAn25j_EZJleCp9XICOZNtRk6d6sgVua40" />
+<title>Python/Django</title>
+<link href="/static/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<div id="wrapper">
+	
+	<div id="tabs">
+    <ul>
+		<li><a href="/news/1" title="Home"><span>Strona Główna</span></a></li>
+		<li><a href="/artykuly" title="Articles"><span>Artykuły</span></a></li>
+		<li><a href="/news/1" title="Wasze"><span>Wasze Artykuły</span></a></li>
+		<li><a href="/news/1" title="Blog's"><span>Blogi</span></a></li>
+		<li><a href="/news/1" title="Forum"><span>Forum</span></a></li>
+		<li><a href="/news/1" title="Kontakt"><span>Kontakt</span></a></li>	
+    </ul>
+	</div>
+
+	<div id="naglowek">
+	<img src="/static/banner3.jpg" width="100%" height="200" alt="banner"/>	
+	</div>
+
+{% block sidebar %}
+<div id="sidebar">
+	<h2>TOP 10</h2>
+	<p><a href="#">Django</a></p>
+	<p><a href="#">Django</a></p>
+	<p><a href="#">Django</a></p>
+	<p><a href="#">Django</a></p>
+	<p><a href="#">Django</a></p>
+	<p><a href="#">Django</a></p>
+	<br /><br />
+	</div>
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

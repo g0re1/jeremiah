@@ -1,0 +1,39 @@
+{% extends 'header.html' %}
+
+{% block content %}
+	<div id="tresc">
+
+			{% if latest_news_list %}
+			{% for news in latest_news_list %}							
+				<div class="wpis">				
+					<br />					
+					<h2>{{news.tytul}}</h2>
+					<p>{{news.date}}<span> Autor : <a href="#">{{news.user}}</a></span></p><hr /> 		
+					<p>{{news.opis|safe }}</p><hr />
+					<p><a href="/news/{{ news.slug }}/">Read more | Comments</a></p>	
+					<br />		
+				</div>	
+			<br /><br />	
+			{% endfor %}	
+			{% else %}			
+			<p> No news are available. </p>									
+			{% endif %}
+	<p> {% if count %}
+	{% for x in count %}
+	<a href="/news/{{ x }}/">{{ x }}</a>
+	{% endfor %}
+	{% endif %}</p>
+	</div>
+		
+<!-- end #content -->		
+{% endblock %}
+
+{% block footer %}	
+{% include 'footer.html' %}
+{% endblock %}
+
+
+
+
+
+

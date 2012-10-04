@@ -1,0 +1,35 @@
+{% extends "header.html" %}
+
+{% block content %}
+<div id="tresc">
+	<div class="wpis">				
+		<h2>{{art.tytul}}</h2>
+		<p>{{art.date}}<span> Autor : <a href="#">{{art.user}}</a></span><hr /><p> 		
+		<p>{{art.tresc|safe }}<hr /></p><br />		
+	</div>	
+
+	{% if art.comments.count > 0 %}
+	    <p>Komentarze: {{ art.comments.count }}</p>
+	{% else %}
+	    Brak komentarzy
+	{% endif %}
+	</strong>
+	{% for comment in comments %}
+	 	<p><b>{{ comment.login }}</b> <i> {{ comment.date }}</i>{% if comment.email %} ( {{ comment.email }} ) {% endif %}</p>
+		<p>{{ comment.content }}</p>
+	 	<hr \>
+	{% endfor %}
+	<form method="POST">
+		<p>Login &nbsp; : {{ form.login }}</p>	
+		<p>Email* : {{ form.email }}</p>	
+		<p>Treść &nbsp; : {{ form.content }}</p>	
+	* Pola oznaczone gwiazdką są niewymagane<br /><br />
+	<input type="submit" value="Dodaj komentarz" />
+	</form>
+</div>
+
+{% endblock %}
+
+{% block footer %}	
+{% include 'footer.html' %}
+{% endblock %}

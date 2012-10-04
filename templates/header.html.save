@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="description" content="Kolarski blog Gore - dziennik kolarski" />
+<meta name="keywords" content="kolarstwo, rowery, trening kolarski, interwal, trening interwalowy, fitness, szosa, kolarstwo szosowe, rower, kolarka, rower wyscigowy, Gore, Gore's Blog, blog" />
+<meta name="google-site-verification" content="3muaRHZjaZel6Gsqz78Ze87DCLlBmMRYZKaU8U1naFo" />
+<title>Gore's Blog</title>
+<link href="/static/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<div id="wrapper">
+	
+	<div id="tabs">
+    <ul>
+		<li><a href="/news/1" title="Home"><span>Strona Główna</span></a></li>
+		<li><a href="slub.html" title="Moje wypociny"><spa Blog </span></a></li>
+		<li><a href="wesele.html" title="Articles"><span>Artykuły</span></a></li>
+		<li><a href="galeria.html" title="Math"><span>Obliczenia</span></a></li>
+		<li><a href="o_nas.html" title="Gallery"><span>Foty</span></a></li>
+		<li><a href="kontakt.html" title="Kontakt"><span>Kontakt</span></a></li>
+		<li><a href="kropki.html" title="XXXX"><span>...</span></a></li>	
+    </ul>
+	</div>
+
+	<div id="naglowek">
+	<img src="/static/banner.jpg" width="100%" height="200" alt="banner"/>	
+	</div>
+
+{% block sidebar %}
+<div id="sidebar">
+	<h2>TOP 10</h2>
+	<p><a href="#">Pierwszy link</a></p>
+	<p><a href="#">Pierwszy link</a></p>
+	<p><a href="#">Pierwszy link</a></p>
+	<p><a href="#">Pierwszy link</a></p>
+	<p><a href="#">Pierwszy link</a></p>
+	<p><a href="#">Pierwszy link</a></p>
+	<br /><br />
+	</div>
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

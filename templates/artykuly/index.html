@@ -1,0 +1,27 @@
+{% extends 'header.html' %}
+
+{% block content %}
+	<div id="tresc">
+			{% if latest_arts_list %}
+			{% for art in latest_arts_list %}							
+				<div class="wpis">								
+					<h3>{{art.id}}.&nbsp;<a href="/artykuly/{{ art.slug }}/">{{art.tytul}}</a>	</h3>	
+				</div>		
+			{% endfor %}	
+			{% else %}			
+			<p> No arts are available. </p>									
+			{% endif %}
+	
+	 </div>			
+<!-- end #content -->		
+{% endblock %}
+
+{% block footer %}	
+{% include 'footer.html' %}
+{% endblock %}
+
+
+
+
+
+
