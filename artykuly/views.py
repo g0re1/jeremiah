@@ -11,7 +11,7 @@ from artykuly.forms import CommentForm
 def index(request):
     latest_arts_list = Art.objects.all().order_by('date')
     t = loader.get_template('artykuly/index.html')
-    c = Context({'latest_arts_list':latest_arts_list,})
+    c = Context({'latest_arts_list':latest_arts_list,'user':request.user,})
     return HttpResponse(t.render(c))
 
 

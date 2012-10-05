@@ -1,0 +1,25 @@
+{% extends "header.html"%}
+
+{% block content %}
+<div id="tresc">
+	<div id="wpis">				
+		<h2>Rejestracja</h2>
+		<fieldset>
+ 	        <legend> Formluarz rejestracji fitna.pl</legend>
+   	        <form method="post" action=".">{% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Rejestracja">    
+                </form>
+
+</fieldset>
+		<p><hr /></p><br />		
+	</div>	
+
+</div>
+
+{% endblock %}
+
+{% block footer %}	
+{% include 'footer.html' %}
+{% endblock %}
+

@@ -1,0 +1,28 @@
+{% extends "header.html" %}
+
+{% block content %}
+<div id="tresc">
+	<div id="wpis">				
+		<h2>Logowanie</h2>
+		{% if not user.is_authenticated %}
+		<p><fieldset>
+   		<form method="post" action=".">{% csrf_token %}
+   		<div style="text-align:left";>{{ form.as_p }}</div>
+   		<input type="hidden" name="next" value="/jeremiah/{{ username }}" />
+  	        <input type="submit" value="Logowanie"/>    <input type="reset" value="Wartości domyślne"/>
+  		</form>
+		</fieldset></p>	
+		<p>A moje najpierw rejestracja ? [[-- <a href="/jeremiah/register"> Rejestracja --]] </a>	</p>
+		{% else %}
+		<p>Już jesteś zalogowany</p>
+		{% endif %}
+		<p><hr /></p><br />		
+	</div>	
+
+</div>
+
+{% endblock %}
+
+{% block footer %}	
+{% include 'footer.html' %}
+{% endblock %}

@@ -20,7 +20,18 @@
 		<li><a href="/news/1" title="Wasze"><span>Wasze Artykuły</span></a></li>
 		<li><a href="/news/1" title="Blog's"><span>Blogi</span></a></li>
 		<li><a href="/news/1" title="Forum"><span>Forum</span></a></li>
-		<li><a href="/news/1" title="Kontakt"><span>Kontakt</span></a></li>	
+		<li><a href="/news/1" title="Kontakt"><span>Kontakt</span></a></li>
+		{% block user %} 
+
+		{% if user.is_active %}
+      		<li> Zalogowany użytkownik: <b>{{user.username}}</b></li>
+		<li><a href="/jeremiah/logout/">wyloguj się</a></li>    
+    		{% else %}
+      		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/jeremiah/login/">[ -- Zaloguj się -- ]</a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	        <a href="/jeremiah/register/">[ -- Rejestracja -- ]</a>
+    		{% endif %}
+
+		{% endblock %}	
     </ul>
 	</div>
 

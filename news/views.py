@@ -16,7 +16,7 @@ def index(request):
     count = []
     for i in range(1, x + 1):
         count.append(i)
-    c = Context({'latest_news_list':latest_news_list, 'count':count, })
+    c = Context({'latest_news_list':latest_news_list, 'count':count,'user':request.user, })
     return HttpResponse(t.render(c))
 
 
@@ -30,7 +30,7 @@ def index_pag(request, id):
     for i in range(1, x + 1):
         count.append(i)
     t = loader.get_template('news/index.html')
-    c = Context({'latest_news_list':latest_news_list, 'count':count, })
+    c = Context({'latest_news_list':latest_news_list, 'count':count,'user':request.user, })
     return HttpResponse(t.render(c))
 
 def show_news(request, slug):
