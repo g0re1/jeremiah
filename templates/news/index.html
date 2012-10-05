@@ -5,12 +5,12 @@
 
 			{% if latest_news_list %}
 			{% for news in latest_news_list %}							
-				<div class="wpis">				
+				<div id="wpis">				
 					<br />					
 					<h2>{{news.tytul}}</h2>
 					<p>{{news.date}}<span> Autor : <a href="#">{{news.user}}</a></span></p><hr /> 		
 					<p>{{news.opis|safe }}</p><hr />
-					<p><a href="/news/{{ news.slug }}/">Read more | Comments</a></p>	
+					<p><a href="/jeremiah/news/{{ news.slug }}/">Read more | Comments</a></p>	
 					<br />		
 				</div>	
 			<br /><br />	
