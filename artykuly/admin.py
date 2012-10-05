@@ -1,17 +1,19 @@
 from django.contrib import admin
-from jeremiah.artykuly.models import *
+from artykuly.models import Art, Comment, User
+
 
 class ArticleAdmin(admin.ModelAdmin):
-	list_display = ('tytul','date')
-	prepopulated_fields = {'slug': ('tytul',)}
+    list_display = ('tytul', 'date')
+    prepopulated_fields = {'slug': ('tytul',)}
+
 
 class CommentAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,    {'fields': ['art','login','email','content']}),
+        (None, {'fields': ['art', 'login', 'email', 'content']}),
     ]
-    list_display = ('art','login','content')
+    list_display = ('art', 'login', 'content')
+ 
  
 admin.site.register(Comment, CommentAdmin)
-
-admin.site.register(Art,ArticleAdmin)
+admin.site.register(Art, ArticleAdmin)
 admin.site.register(User)

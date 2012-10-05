@@ -1,0 +1,12 @@
+#
+# Sample localsettings for developers.
+#
+TEMPLATE_DEBUG = DEBUG = True 
+SECRET_KEY = "FooBar"
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": "local.db",
+    }
+}

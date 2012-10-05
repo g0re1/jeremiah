@@ -1,0 +1,6 @@
+# Localsettings for production server
+MEDIA_ROOT = '/home/gore/domains/gore.linuxpl.info/public_html/uploads/'
+STATIC_ROOT = '/home/gore/domains/gore.linuxpl.info/public_html/statics/'
+
+SECRET_KEY = 'Fill this in'
+DEBUG = False

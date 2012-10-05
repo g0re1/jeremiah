@@ -2,27 +2,27 @@ from django.db import models
 
 
 class User(models.Model):
-        imie = models.CharField(max_length=200)
-        nazwisko = models.CharField(max_length=200)
-	nick = models.CharField(max_length=200)
-	podpis = models.CharField(max_length=500)
+    imie = models.CharField(max_length=200)
+    nazwisko = models.CharField(max_length=200)
+    nick = models.CharField(max_length=200)
+    podpis = models.CharField(max_length=500)
 
-	def __unicode__(self):
-                return self.nick
+    def __unicode__(self):
+        return self.nick
 
 class News(models.Model):
-        tytul = models.CharField(max_length=500)
-        slug = models.SlugField(max_length=255, unique=True)
-	opis = models.TextField()
-        tresc = models.TextField()
-        user = models.ForeignKey(User)
-        date = models.DateTimeField()
+    tytul = models.CharField(max_length=500)
+    slug = models.SlugField(max_length=255, unique=True)
+    opis = models.TextField()
+    tresc = models.TextField()
+    user = models.ForeignKey(User)
+    date = models.DateTimeField()
 
-        def __unicode__(self):
-                return self.tytul
+    def __unicode__(self):
+        return self.tytul
 
 class Comment(models.Model):
-    news = models.ForeignKey(News, related_name = "comments")
+    news = models.ForeignKey(News, related_name="comments")
     login = models.CharField(max_length=50)
     email = models.CharField(max_length=100)
     date = models.DateTimeField(auto_now=True)

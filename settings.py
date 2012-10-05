@@ -9,6 +9,12 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+import os.path
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+
+def project_path(path):
+    return os.path.join(PROJECT_ROOT, path)
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
@@ -45,18 +51,18 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = '/var/www/uploads/'
+MEDIA_ROOT = project_path("uploads")
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = '/media/static'
+MEDIA_URL = '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = project_path('statics.dist')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -65,7 +71,7 @@ STATIC_URL = '/static/'
 # URL prefix for admin static files -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
-ADMIN_MEDIA_PREFIX = '/media/static/admin/'
+ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -82,9 +88,6 @@ STATICFILES_FINDERS = (
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = '5-hrd8p-i25r(%)fn#i^yotdul4**jtx9591#gg_+y0d^_*_h7'
-
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -93,17 +96,16 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.csrf.CsrfResponseMiddleware',
 )
 
 ROOT_URLCONF = 'jeremiah.urls'
 
-TEMPLATE_DIRS = ("/home/gore/apps/jeremiah/templates"
+TEMPLATE_DIRS = (project_path("templates"),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -120,9 +122,9 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
      'django.contrib.admindocs',
-     'jeremiah.default',
-     'jeremiah.news',
-     'jeremiah.artykuly',
+     'default',
+     'news',
+     'artykuly',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -147,3 +149,8 @@ LOGGING = {
         },
     }
 }
+
+try:
+    from localsettings import *
+except ImportError:
+    pass
